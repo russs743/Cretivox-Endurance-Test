@@ -80,8 +80,8 @@ export default function About() {
               Halo, gue <strong>Rusydi Balfas</strong>. Mahasiswa Ilmu Komputer tingkat akhir di IPB University
             </p>
             <p>
-              Saya tidak hanya menulis kode; saya membangun solusi. Dengan latar belakang Fullstack Development (React, Node.js) dan kepekaan desain UI/UX, saya menjembatani kesenjangan antara 
-              <em>data yang kompleks</em> dan <em>tampilan yang interaktif</em>.
+              Gue tidak hanya menulis kode saya membangun solusi. Dengan latar belakang Fullstack Development (React, Node.js) dan kepekaan desain UI/UX, saya menjembatani kesenjangan antara 
+              <em> data yang kompleks</em> dan <em>tampilan yang interaktif </em>.
             </p>
           </div>
 
