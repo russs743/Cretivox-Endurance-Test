@@ -146,7 +146,7 @@ export default function GamerSection() {
         
         <div className="max-w-2xl bg-black/80 border border-blue-500/30 p-8 rounded-3xl pointer-events-auto">
           <p className="font-sans text-xl md:text-2xl text-gray-300 leading-relaxed">
-            Gue udah mulai main game dari umur gue 3 tahun dari game <strong className="text-blue-400">PS2, PS3, PS4, Nitendo, Mobile </strong>
+            Gue udah mulai main game dari umur gue 3 tahun dari game <strong className="text-blue-400">PS2, PS3, PS4, Nintendo, Mobile </strong>
             sampe sekarang gue pake <strong className="text-blue-400">PC</strong>.
           </p>
           <div className="mt-8 flex justify-center gap-4 flex-wrap">
