@@ -1,0 +1,151 @@
+/* app/components/ProjectGallery.module.css */
+
+.galleryWrapper {
+  /* GANTI BACKGROUND DI SINI */
+  /* Opsi 1: Slate 900 (Gelap Elegan) -> #0f172a */
+  /* Opsi 2: Gray 900 (Abu Gelap) -> #111827 */
+  /* Opsi 3: Neutral 800 (Abu Sedang) -> #262626 */
+  
+  /* Saya pilih Opsi 1 (Slate) biar ada nuansa birunya dikit, cocok sama tema tech */
+  --bg-color: #0f172a; 
+  
+  /* Variable lainnya tetap sama */
+  --perspective: 2000px;
+  --hover-intensity: 10rem;
+  --hover-smoothness: 70ms;
+  --fall-smoothness: 250ms;
+  
+  font-family: 'Manrope', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  
+  /* PENTING: Tambahkan padding atas/bawah biar galeri-nya ga nempel pinggir */
+  padding: 100px 0; 
+  
+  overflow: hidden;
+  background: var(--bg-color);
+}
+
+.galleryContainer {
+  /* Konfigurasi Dasar */
+  --perspective: 2000px;
+  --hover-intensity: 10rem;
+  --hover-smoothness: 70ms; 
+  --fall-smoothness: 250ms;
+  --bg-color: #020617;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 600px; /* Tinggi area galeri */
+  overflow: hidden;
+  font-family: 'Manrope', sans-serif;
+}
+
+.nav {
+  /* Rumus Matematika Posisi (Region) */
+  --r: calc(var(--max-z) * (var(--p) - 1) + var(--z)); 
+  --r-n: calc((var(--r) - 1) / (var(--max-z) * var(--max-p) - 1));
+
+  display: flex;
+  align-items: flex-end;
+  position: relative;
+  width: 100%;
+  max-width: 1200px; /* Lebar maksimal galeri */
+  height: 400px;     /* Tinggi kartu */
+  
+  perspective: var(--perspective);
+  transform-style: preserve-3d;
+}
+
+.card {
+  flex: 1;
+  height: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end; /* Teks di bawah */
+  color: inherit;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transition: flex 0.3s ease;
+  overflow: hidden;
+  border-radius: 12px;
+  margin: 0 2px;
+  text-decoration: none;
+
+  /* Kalkulasi Jarak & Tilt */
+  --p-n: calc(var(--i) / (var(--max-p) - 1));
+  --diff: calc(var(--p-n) - var(--r-n));  
+  --u: calc(abs(var(--diff)) / var(--w)); 
+  --w: 0.4;
+  
+  /* Falloff: Semakin jauh dari mouse, semakin kecil efeknya */
+  --falloff: clamp(calc(0.5 * (1 + cos(min(var(--u), 1) * 180deg))), 0, 1);
+  
+  --tilt: calc(clamp(-1, var(--diff) * 5, 1) * var(--falloff) * 70deg);
+
+  /* Transformasi 3D Utama */
+  transform: 
+    translateZ(calc(var(--falloff) * var(--hover-intensity)))
+    rotateY(calc(var(--tilt) * 1)) /* cos(0) = 1 */
+    rotateX(0deg); /* Kita sederhanakan rotasi X agar tidak pusing */
+
+  /* Transisi Halus */
+  --ts: calc(var(--hover-smoothness) * var(--falloff) + var(--fall-smoothness) * (1 - var(--falloff)));
+  transition: transform var(--ts), flex 0.3s;
+  
+  /* Efek Gelap Terang */
+  filter: brightness(max(0.4, var(--falloff) * 1.3)) saturate(var(--falloff));
+}
+
+/* Gambar Background */
+.img {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* Biar mouse nembus ke zona deteksi */
+}
+
+/* Zona Deteksi Halus (Invisible Grid) */
+.hoverZone {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  z-index: 10;
+}
+
+.zoneSensor {
+  flex: 1;
+  height: 100%;
+  /* background: rgba(255,0,0,0.1); Debugging: Nyalakan kalau mau lihat gridnya */ 
+}
+
+/* Judul Project (Muncul saat aktif) */
+.cardInfo {
+  position: relative;
+  z-index: 20;
+  padding: 20px;
+  background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+  width: 100%;
+  transform: translateY(100%);
+  transition: transform 0.3s;
+  opacity: 0;
+}
+
+/* Logic React: Kalau dia aktif (paling besar), munculkan infonya */
+.card[data-active="true"] {
+  flex: 3; /* Kartu aktif jadi lebih lebar */
+  filter: brightness(1.1) saturate(1.2);
+}
+
+.card[data-active="true"] .cardInfo {
+  transform: translateY(0);
+  opacity: 1;
+}
