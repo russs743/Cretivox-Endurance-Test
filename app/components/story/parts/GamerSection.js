@@ -16,7 +16,7 @@ const games = [
   { id: 2, title: "Valorant", src: "/games/valorant.jpg", x: 25, y: 10, z: 350 },
   
   // --- LAYER TENGAH ---
-  { id: 3, title: "Sekiro", src: "/games/sekiro.jpg", x: -15, y: 25, z: 250 },
+  { id: 3, title: "Sekiro", src: "/games/Sekiro.jpg", x: -15, y: 25, z: 250 },
   { id: 4, title: "Geometry Dash", src: "/games/geometry dash.jpg", x: 20, y: -20, z: 200 },
   
   // --- LAYER BELAKANG ---
@@ -28,7 +28,7 @@ const games = [
   { id: 8, title: "Mobile Legends", src: "/games/ML.jpg", x: -10, y: -30, z: -50 },
   
   // --- TAMBAHAN BIAR RAME ---
-  { id: 9, title: "Delta Force", src: "/games/delta force.jpg", x: 35, y: 35, z: 150 },
+  { id: 9, title: "Delta Force", src: "/games/Delta Force.jpg", x: 35, y: 35, z: 150 },
   { id: 10, title: "Clone Hero", src: "/games/clone hero.jpg", x: -35, y: -35, z: 120 },
 ];
 
