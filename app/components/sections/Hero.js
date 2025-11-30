@@ -152,11 +152,11 @@ export default function Hero() {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 text-center text-white w-full px-4 pointer-events-none">
         
         <p className="tagline font-sans text-sm md:text-lg font-light tracking-[0.3em] uppercase mb-4 text-blue-400 drop-shadow-md">
-          Rusydi Balfas &mdash; IPB University
+          Computer Science &mdash; IPB University
         </p>
 
         <div className="flex flex-col items-center mix-blend-difference">
-          <h1 className="hero-title leading-none">FRONTEND DEV</h1>
+          <h1 className="hero-title leading-none">RUSYDI BALFAS</h1>
         </div>
       </div>
 
