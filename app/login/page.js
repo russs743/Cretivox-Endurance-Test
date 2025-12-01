@@ -101,7 +101,7 @@ export default function LoginPage() {
         
         {/* Header Card */}
         <div className="text-center mb-10 form-item">
-          <p className="text-blue-400 text-xs font-bold tracking-[0.3em] uppercase mb-2">Welcome Back</p>
+          <p className="text-blue-400 text-xs font-bold tracking-[0.3em] uppercase mb-2">Username & Pass sesuai yang dikasih</p>
           <h1 className="font-syne text-4xl font-bold text-white">Login.</h1>
         </div>
 
