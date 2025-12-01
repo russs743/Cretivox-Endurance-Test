@@ -17,28 +17,23 @@ export default function IPBSection() {
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: containerRef.current,
-        // start: "top top" artinya: Mulai animasi pas BAGIAN ATAS section nyentuh BAGIAN ATAS layar.
-        // Jadi user dipaksa lihat gambar full dulu baru animasi mulai.
         start: "top top", 
-        
-        // end: "+=150%" artinya: Kita kasih "ruang scroll" ekstra sebesar 1.5x tinggi layar
-        // buat jalanin animasi blurnya. Jadi rasanya lebih lambat & smooth.
         end: "+=150%", 
         
-        pin: true,   // KUNCI LAYAR (Biar ga scroll lewat gitu aja)
-        scrub: 1,    // Kasih angka 1 biar ada efek 'berat/delay' dikit (smooth)
+        pin: true,   // KUNCI LAYAR
+        scrub: 1,    // Kasih angka 1 biar ada efek 'berat/delay
       }
     });
 
     // --- TIMELINE ANIMASI ---
     
-    // 1. Tahan dulu sebentar (Dummy Tween) biar user sempet liat gambar jelas pas baru ke-lock
+    // 1. Tahan dulu sebentar (Dummy Tween)
     tl.to({}, { duration: 0.5 }) 
 
     // 2. Mulai Blur & Gelapkan Background
     .to(overlayRef.current, {
-      backdropFilter: "blur(12px)", // Blur makin kuat
-      backgroundColor: "rgba(0,0,0,0.8)", // Makin gelap biar teks kebaca
+      backdropFilter: "blur(12px)",
+      backgroundColor: "rgba(0,0,0,0.8)",
       duration: 2,
       ease: "none"
     })
@@ -53,7 +48,6 @@ export default function IPBSection() {
   }, { scope: containerRef });
 
   return (
-    // Gunakan h-screen agar pas satu layar penuh saat di-pin
     <section ref={containerRef} id="ipb-section" className="relative h-screen w-full overflow-hidden bg-neutral-950">
       
       {/* LAYER 1: MOSAIC (Background) */}
