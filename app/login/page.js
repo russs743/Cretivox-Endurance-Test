@@ -52,7 +52,7 @@ export default function LoginPage() {
 
   }, { scope: containerRef });
 
-  // --- LOGIKA LOGIN (SAMA SEPERTI SEBELUMNYA) ---
+  // --- LOGIKA LOGIN ---
   const handleLogin = async (e) => {
     e.preventDefault();
     setIsLoading(true);
