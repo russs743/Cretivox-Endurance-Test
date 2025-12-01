@@ -86,7 +86,7 @@ export default function About() {
           {/* Stats / Skill Tags */}
           <div className="about-text mt-10 grid grid-cols-2 gap-6">
             <div className="border-l-2 border-white/20 pl-4">
-              <h4 className="text-white font-syne font-bold text-2xl">4+ Years</h4>
+              <h4 className="text-white font-syne font-bold text-2xl">3+ Years</h4>
               <p className="text-sm text-gray-500">Coding Experience</p>
             </div>
             <div className="border-l-2 border-white/20 pl-4">
