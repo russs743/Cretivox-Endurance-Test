@@ -2,20 +2,20 @@
 
 import React, { useEffect, useRef } from 'react';
 
-// Kumpulan Gambar untuk Mosaic (IPB, Tech, Coding vibe)
+// Kumpulan Gambar untuk Mosaic
 const images = [
-  "/mosaic/IPB12.jpg",       // Foto 1
+  "/mosaic/IPB12.jpg", // Foto 1
   "/mosaic/IPB1.jpg", // Foto 2
-  "/mosaic/IPB2.jpg",   // Foto 3
-  "/mosaic/IPB3.jpg",  // Foto 4
-  "/mosaic/IPB4.jpg",    // Foto 5
-  "/mosaic/IPB5.jpg",       // Foto 6
-  "/mosaic/IPB6.jpg",          // Foto 7
-  "/mosaic/IPB7.jpg",   // Foto 8
-  "/mosaic/IPB8.jpg",        // Foto 9
-  "/mosaic/IPB9.jpg",        // Foto 10
-  "/mosaic/IPB10.jpg",        // Foto 11
-  "/mosaic/IPB11.jpg",
+  "/mosaic/IPB2.jpg", // Foto 3
+  "/mosaic/IPB3.jpg", // Foto 4
+  "/mosaic/IPB4.jpg", // Foto 5
+  "/mosaic/IPB5.jpg", // Foto 6
+  "/mosaic/IPB6.jpg", // Foto 7
+  "/mosaic/IPB7.jpg", // Foto 8
+  "/mosaic/IPB8.jpg", // Foto 9
+  "/mosaic/IPB9.jpg", // Foto 10
+  "/mosaic/IPB10.jpg", // Foto 11
+  "/mosaic/IPB11.jpg", // Foto 12
 ];
 
 export default function MosaicSlideshow() {
@@ -44,17 +44,17 @@ export default function MosaicSlideshow() {
       setTimeout(() => {
         if (!tile) return;
         
-        // 1. Fade Out (Opacity 0)
+        // Fade Out
         tile.style.opacity = 0;
         tile.style.transform = "scale(0.8)";
 
-        // 2. Ganti Gambar & Fade In setelah delay singkat
+        // Ganti Gambar & Fade In
         setTimeout(() => {
           if (!tile) return;
           tile.style.backgroundImage = `url(${images[imgIndex % images.length]})`;
           tile.style.opacity = 1;
           tile.style.transform = "scale(1)";
-        }, 500); // Waktu ganti gambar (tunggu fade out selesai)
+        }, 500); // Waktu ganti gambar
 
       }, delay);
     };
@@ -64,8 +64,7 @@ export default function MosaicSlideshow() {
       // Buat urutan acak tile mana yang mau diganti
       const order = shuffleArray([...Array(tiles.length).keys()]);
       
-      // Ambil beberapa tile saja untuk diganti (misal 4 tile per siklus biar ga terlalu chaos)
-      // Kalau mau semua ganti, hapus .slice(0, 6)
+      // Ambil beberapa tile saja untuk diganti
       const tilesToUpdate = order.slice(0, 6); 
 
       tilesToUpdate.forEach((i, idx) => {
@@ -84,7 +83,7 @@ export default function MosaicSlideshow() {
 
   return (
     <div ref={containerRef} className="w-full h-full grid grid-cols-3 md:grid-cols-4 gap-1 p-1 bg-black/20">
-      {/* Kita buat 12 kotak (Tiles) */}
+      {/* buat 12 kotak (Tiles) */}
       {Array.from({ length: 12 }).map((_, i) => (
         <div
           key={i}
