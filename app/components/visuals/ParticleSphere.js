@@ -8,7 +8,7 @@ export default function ParticleSphere() {
   const containerRef = useRef();
 
   useEffect(() => {
-    // 1. SETUP THREE.JS (Kamera, Scene, Renderer)
+    // SETUP THREE.JS (Kamera, Scene, Renderer)
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
     camera.position.z = 22; // Mengatur jarak kamera biar objek terlihat pas
@@ -22,7 +22,7 @@ export default function ParticleSphere() {
       containerRef.current.appendChild(renderer.domElement);
     }
 
-    // 2. MEMBUAT TITIK-TITIK BOLA (GEOMETRY)
+    // MEMBUAT TITIK-TITIK BOLA (GEOMETRY)
     const count = 400; // Jumlah titik partikel
     const geometry = new THREE.BufferGeometry();
     const positions = [];
@@ -64,7 +64,7 @@ export default function ParticleSphere() {
 
     // --- ANIMASI GSAP & INTERAKSI ---
     
-    // 3. ANIMASI INTRO (Meledak Membesar)
+    // ANIMASI INTRO 
     gsap.to(sphere.scale, {
       x: 1,
       y: 1,
@@ -111,7 +111,7 @@ export default function ParticleSphere() {
     };
     animate();
 
-    // 5. BERSIH-BERSIH MEMORY (Cleanup)
+    // 5. BERSIH-BERSIH MEMORY
     const handleResize = () => {
       camera.aspect = window.innerWidth / window.innerHeight;
       camera.updateProjectionMatrix();
