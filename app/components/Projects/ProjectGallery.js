@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import styles from './ProjectGallery.module.css';
 
-// DATA PROJECT KAMU
+// DATA PROJECT
 const projects = [
   { id: 1, title: "Playfair Cipher", tech: "C++ • React.js", img: "/Project/playfair-cipher.png" },
   { id: 2, title: "E-Lung", tech: "FrontEnd • UI/UX", img: "/Project/e-lung.png" },
