@@ -7,11 +7,11 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-// DATA GAME (VERSI RAPAT & PADAT)
+// DATA GAME
 const games = [
-  // --- LAYER DEPAN (SANGAT DEKAT) ---
-  // x/y dikecilkan biar ga terlalu minggir
-  // z dibesarkan biar deket muka
+  // --- LAYER DEPAN ---
+  // x/y kecil biar ga terlalu minggir
+  // z besar biar deket muka
   { id: 1, title: "Elden Ring", src: "/games/elden ring.jpg", x: -25, y: -15, z: 400 },
   { id: 2, title: "Valorant", src: "/games/valorant.jpg", x: 25, y: 10, z: 350 },
   
@@ -23,11 +23,11 @@ const games = [
   { id: 5, title: "Zenless Zone Zero", src: "/games/zzz.jpg", x: -30, y: 0, z: 100 },
   { id: 6, title: "Genshin Impact", src: "/games/genshin impact.jpg", x: 30, y: -10, z: 50 },
 
-  // --- LAYER JAUH ---
+  // --- LAYER BELAKANG BANGET ---
   { id: 7, title: "Final Fantasy XV", src: "/games/FFXV.jpg", x: 10, y: 30, z: 0 },
   { id: 8, title: "Mobile Legends", src: "/games/ML.jpg", x: -10, y: -30, z: -50 },
   
-  // --- TAMBAHAN BIAR RAME ---
+  // --- LAYER BELAKANG BANGET UDEH ---
   { id: 9, title: "Delta Force", src: "/games/Delta Force.jpg", x: 35, y: 35, z: 150 },
   { id: 10, title: "Clone Hero", src: "/games/clone hero.jpg", x: -35, y: -35, z: 120 },
 ];
@@ -42,13 +42,13 @@ export default function GamerSection() {
       scrollTrigger: {
         trigger: containerRef.current,
         start: "top top", 
-        end: "+=1000%", // Sedikit diperpanjang
+        end: "+=1000%",
         pin: true,        
         scrub: 1, 
       }
     });
 
-    // 1. WORLD MUNDUR (ZOOM OUT)
+    // WORLD MUNDUR
     tl.to(worldRef.current, {
       z: -4500, // Mundur lebih jauh biar semua kartu lewat
       duration: 10, 
@@ -56,7 +56,7 @@ export default function GamerSection() {
       force3D: true 
     }, 0)
 
-    // 2. KARTU GAME FLY-IN
+    // KARTU GAME FLY-IN
     .fromTo(".game-card", 
       { 
         z: 2000,        
@@ -79,20 +79,20 @@ export default function GamerSection() {
       0.2
     )
 
-    // 3. FADE OUT
+    // FADE OUT
     .to(worldRef.current, {
       opacity: 0, 
       duration: 2
     }, 8) 
 
-    // 4. TEXT REVEAL
+    // TEXT REVEAL
     .fromTo(textRef.current, 
       { opacity: 0, scale: 2, z: -500 }, 
       { opacity: 1, scale: 1, z: 0, duration: 2, ease: "power3.out" },
       8.5
     )
 
-    // 5. HOLD
+    // HOLD
     .to({}, { duration: 5 });
 
   }, { scope: containerRef });
@@ -114,7 +114,7 @@ export default function GamerSection() {
             key={game.id}
             className="game-card opacity-0 absolute p-1 bg-blue-900/40 border border-blue-500/50 rounded-xl overflow-hidden z-10 will-change-transform"
             style={{
-              // PERBESAR UKURAN KARTU DI SINI
+              // PERBESAR UKURAN KARTU
               width: '350px',  
               height: '480px', 
               // Transform
