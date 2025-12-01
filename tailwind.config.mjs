@@ -3,13 +3,13 @@ export default {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./app/**/*.{js,ts,jsx,tsx,mdx}", // <--- INI YANG PENTING
+    "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {
       fontFamily: {
-        sans: ['var(--font-inter)'], // Biar font Inter jalan
-        syne: ['var(--font-syne)'],  // Biar font Syne jalan
+        sans: ['var(--font-inter)'],
+        syne: ['var(--font-syne)'], 
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
