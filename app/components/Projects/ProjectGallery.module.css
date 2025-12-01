@@ -1,15 +1,7 @@
 /* app/components/ProjectGallery.module.css */
 
 .galleryWrapper {
-  /* GANTI BACKGROUND DI SINI */
-  /* Opsi 1: Slate 900 (Gelap Elegan) -> #0f172a */
-  /* Opsi 2: Gray 900 (Abu Gelap) -> #111827 */
-  /* Opsi 3: Neutral 800 (Abu Sedang) -> #262626 */
-  
-  /* Saya pilih Opsi 1 (Slate) biar ada nuansa birunya dikit, cocok sama tema tech */
   --bg-color: #0f172a; 
-  
-  /* Variable lainnya tetap sama */
   --perspective: 2000px;
   --hover-intensity: 10rem;
   --hover-smoothness: 70ms;
@@ -20,16 +12,12 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  
-  /* PENTING: Tambahkan padding atas/bawah biar galeri-nya ga nempel pinggir */
   padding: 100px 0; 
-  
   overflow: hidden;
   background: var(--bg-color);
 }
 
 .galleryContainer {
-  /* Konfigurasi Dasar */
   --perspective: 2000px;
   --hover-intensity: 10rem;
   --hover-smoothness: 70ms; 
@@ -40,13 +28,12 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 600px; /* Tinggi area galeri */
+  height: 600px; 
   overflow: hidden;
   font-family: 'Manrope', sans-serif;
 }
 
 .nav {
-  /* Rumus Matematika Posisi (Region) */
   --r: calc(var(--max-z) * (var(--p) - 1) + var(--z)); 
   --r-n: calc((var(--r) - 1) / (var(--max-z) * var(--max-p) - 1));
 
@@ -54,8 +41,8 @@
   align-items: flex-end;
   position: relative;
   width: 100%;
-  max-width: 1200px; /* Lebar maksimal galeri */
-  height: 400px;     /* Tinggi kartu */
+  max-width: 1200px;
+  height: 400px;
   
   perspective: var(--perspective);
   transform-style: preserve-3d;
@@ -67,7 +54,7 @@
   position: relative;
   display: flex;
   justify-content: center;
-  align-items: flex-end; /* Teks di bawah */
+  align-items: flex-end;
   color: inherit;
   cursor: pointer;
   transform-style: preserve-3d;
@@ -110,8 +97,7 @@
   background-position: center;
   width: 100%;
   height: 100%;
-  pointer-events: none; /* Biar mouse nembus ke zona deteksi */
-}
+  pointer-events: none; 
 
 /* Zona Deteksi Halus (Invisible Grid) */
 .hoverZone {
@@ -127,7 +113,7 @@
   /* background: rgba(255,0,0,0.1); Debugging: Nyalakan kalau mau lihat gridnya */ 
 }
 
-/* Judul Project (Muncul saat aktif) */
+/* Judul Project */
 .cardInfo {
   position: relative;
   z-index: 20;
@@ -139,7 +125,7 @@
   opacity: 0;
 }
 
-/* Logic React: Kalau dia aktif (paling besar), munculkan infonya */
+/* Logic React: Kalau dia aktif, munculkan infonya */
 .card[data-active="true"] {
   flex: 3; /* Kartu aktif jadi lebih lebar */
   filter: brightness(1.1) saturate(1.2);
