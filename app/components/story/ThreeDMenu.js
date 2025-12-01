@@ -7,13 +7,12 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-// DATA NAVIGASI BARU (4 PILAR)
+// DATA NAVIGASI
 const storySlides = [
   {
     id: 1,
     title: "Computer Science", 
     desc: "Web & UI/UX enthusiast.",
-    // Foto Kampus / Wisuda
     src: "/AllAbout/IPB6.jpg",
     color: "from-emerald-600 to-green-900",
     targetId: "ipb-section" 
@@ -22,7 +21,6 @@ const storySlides = [
     id: 2,
     title: "Tukang Ngegame",
     desc: "Strategy, Reflex, and Problem Solving.",
-    // Foto Setup Gaming
     src: "/AllAbout/game.jpg",
     color: "from-blue-600 to-cyan-900",
     targetId: "gaming-section"
@@ -31,16 +29,14 @@ const storySlides = [
     id: 3,
     title: "Tukang Suruh Suruh",
     desc: "Chairman of Socio Techno & IT Today.",
-    // Foto Rapat / Event
     src: "/AllAbout/SocioTechno.jpg",
     color: "from-red-600 to-orange-900",
     targetId: "leader-section"
   },
   {
     id: 4,
-    title: "Project", // Ini mengarah ke Project Gallery
+    title: "Project", 
     desc: "Fullstack Development & Data Analysis.",
-    // Foto Coding / Monitor
     src: "/AllAbout/Project.png",
     color: "from-purple-600 to-indigo-900",
     targetId: "project-section"
@@ -67,17 +63,17 @@ export default function ThreeDScroll() {
       }
     });
 
-    // 1. SCROLL SAMPING
+    // SCROLL SAMPING
     tl.to(sectionRef.current, {
       x: -amountToScroll, 
       ease: "none",
       duration: 3 
     })
 
-    // 2. PAUSE (DIAM SEBENTAR DI KARTU TERAKHIR)
+    // PAUSE (DIAM SEBENTAR DI KARTU TERAKHIR)
     .to({}, { duration: 0.5 }) 
 
-    // 3. ZOOM OUT / EXIT (MASUK KE SECTION BAWAHNYA)
+    // ZOOM OUT / EXIT (MASUK KE SECTION BAWAHNYA)
     .to(triggerRef.current, {
       scale: 1.5,          
       opacity: 0,          
