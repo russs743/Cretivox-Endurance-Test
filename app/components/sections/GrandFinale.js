@@ -33,8 +33,8 @@ export default function GrandFinale() {
 
     // 2. TEXT "AND NOW" MUNDUR & HILANG
     .to(textRef.current, {
-      scale: 0.1,       // Mengecil
-      z: -1000,         // Mundur jauh
+      scale: 0.1,       
+      z: -1000,         
       opacity: 0,       
       duration: 3,
       ease: "power1.in"
@@ -54,7 +54,7 @@ export default function GrandFinale() {
         duration: 2,
         ease: "back.out(1.2)" // Efek membal (impact)
       }, 
-      "-=1" // Muncul beririsan saat teks mau hilang
+      "-=1" 
     );
 
   }, { scope: containerRef });
