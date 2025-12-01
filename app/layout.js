@@ -12,8 +12,8 @@ const syne = Syne({
 });
 
 export const metadata = {
-  title: "Rusydi - Interactive Portfolio",
-  description: "Cretivox Endurance Test Batch 4",
+  title: "Rusydi - Cretivox",
+  description: "Cretivox Endurance Test",
 };
 
 export default function RootLayout({ children }) {
