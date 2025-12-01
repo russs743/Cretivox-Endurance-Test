@@ -18,7 +18,6 @@ body {
   color: #ffffff;
 }
 
-/* Biar scrollbar tidak mengganggu estetika */
 ::-webkit-scrollbar {
   width: 8px;
 }
