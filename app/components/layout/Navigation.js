@@ -7,7 +7,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-// --- UPDATE MENU DI SINI ---
+// --- MENU ---
 const navLinks = [
   { name: "About", id: "about" },
   { name: "Computer Science", id: "ipb-section" },
@@ -32,7 +32,7 @@ export default function Navigation() {
   };
 
   useGSAP(() => {
-    // 1. ANIMASI HEADER (Smart Hide/Show)
+    // ANIMASI HEADER
     const showAnim = gsap.from(navRef.current, { 
       yPercent: -100, // Sembunyi di atas
       paused: true,
@@ -47,7 +47,7 @@ export default function Navigation() {
       }
     });
 
-    // 2. BACK TO TOP
+    // BACK TO TOP
     gsap.fromTo(btnTopRef.current, 
       { scale: 0, opacity: 0 },
       {
