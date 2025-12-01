@@ -20,8 +20,7 @@ export default function LoginPage() {
     setErrorMsg('');    // Reset pesan error
 
     try {
-      // 1. KIRIM DATA KE API
-      // URL sesuai screenshot kamu:
+      // KIRIM DATA KE API
       const res = await fetch('https://dummyjson.com/auth/login', { 
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -33,12 +32,12 @@ export default function LoginPage() {
 
       const data = await res.json();
 
-      // 2. CEK HASILNYA
+      // CEK HASILNYA
       if (res.ok) {
-        // --- JIKA SUKSES (200 OK) ---
+        // --- JIKA SUKSES ---
         console.log("Login Berhasil:", data);
         
-        // Simpan token (biasanya accessToken) ke Local Storage biar browser ingat user sudah login
+        // Simpan token
         localStorage.setItem('accessToken', data.accessToken);
         localStorage.setItem('user', JSON.stringify(data)); // Opsional: simpan info user
 
