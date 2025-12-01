@@ -8,7 +8,7 @@ export default function Hero() {
   const containerRef = useRef(null);
 
   useEffect(() => {
-    // 1. SETUP RINGAN
+    // SETUP RINGAN
     const scene = new THREE.Scene();
     
     // Kabut hitam agar batas partikel menyatu halus dengan background
@@ -25,15 +25,14 @@ export default function Hero() {
     
     // Masukkan canvas ke container
     if (containerRef.current) {
-      // Hapus canvas lama jika ada (cleanup)
       while(containerRef.current.firstChild){
         containerRef.current.removeChild(containerRef.current.firstChild);
       }
       containerRef.current.appendChild(renderer.domElement);
     }
 
-    // 2. MEMBUAT GELOMBANG PARTIKEL (DATA WAVE)
-    // Kita buat grid titik-titik (misal 100x100 titik)
+    // MEMBUAT GELOMBANG PARTIKEL (DATA WAVE)
+    // buat grid titik-titik 
     const SEPARATION = 40;
     const AMOUNTX = 60;
     const AMOUNTY = 60;
@@ -72,7 +71,7 @@ export default function Hero() {
     const particles = new THREE.Points(geometry, material);
     scene.add(particles);
 
-    // 3. LOGIKA ANIMASI & INTERAKSI
+    // LOGIKA ANIMASI & INTERAKSI
     let count = 0;
     let mouseX = 0;
     let mouseY = 0;
@@ -92,7 +91,7 @@ export default function Hero() {
       camera.position.y += (-mouseY * 0.5 + 50 - camera.position.y) * 0.05;
       camera.lookAt(scene.position);
 
-      // Gerakan Ombak (Sine Wave)
+      // Gerakan Ombak
       const positions = particles.geometry.attributes.position.array;
       let i = 0, j = 0;
       
@@ -113,7 +112,7 @@ export default function Hero() {
 
     animate();
 
-    // 4. CLEANUP (Penting!)
+    // 4. CLEANUP
     const handleResize = () => {
       camera.aspect = window.innerWidth / window.innerHeight;
       camera.updateProjectionMatrix();
@@ -145,7 +144,7 @@ export default function Hero() {
   return (
     <section className="relative w-full h-screen overflow-hidden bg-black">
       
-      {/* 1. BACKGROUND 3D RINGAN */}
+      {/* 1. BACKGROUND 3D */}
       <div ref={containerRef} className="absolute inset-0 z-0" />
 
       {/* 2. KONTEN OVERLAY */}
@@ -170,7 +169,7 @@ export default function Hero() {
           color: white;
         }
 
-        /* GLASS BUTTON (Sama seperti sebelumnya) */
+        /* GLASS BUTTON */
         .glass-button {
           position: relative;
           padding: 16px 40px;
