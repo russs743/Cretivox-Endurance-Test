@@ -19,7 +19,7 @@ export default function About() {
       }
     });
 
-    // 1. Animasi Foto Muncul (Clip Path Effect)
+    // 1. Animasi Foto Muncul
     tl.fromTo(imgRef.current, 
       { clipPath: "inset(0 100% 0 0)" }, // Mulai tertutup dari kanan
       { clipPath: "inset(0 0% 0 0)", duration: 1.5, ease: "power4.out" }
@@ -40,14 +40,12 @@ export default function About() {
       
       <div className="max-w-7xl w-full grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center">
         
-        {/* === KOLOM KIRI: FOTO === */}
+        {/* --- KOLOM KIRI: FOTO --- */}
         <div className="relative group">
-          {/* Frame Hiasan di Belakang */}
           <div className="absolute -inset-4 rounded-2xl translate-x-4 translate-y-4 group-hover:translate-x-2 group-hover:translate-y-2 transition-transform duration-500"></div>
           
           {/* Container Foto */}
           <div ref={imgRef} className="relative rounded-2xl overflow-hidden aspect-[3/4] md:aspect-[4/5]">
-            {/* GANTI src DENGAN NAMA FILE FOTO KAMU DI FOLDER PUBLIC */}
             <img 
               src="/img/IMG-20250909-WA0146 (2).jpg" 
               alt="Rusydi Balfas" 
@@ -65,7 +63,7 @@ export default function About() {
           </div>
         </div>
 
-        {/* === KOLOM KANAN: BIO & STATS === */}
+        {/* --- KOLOM KANAN: BIO & STATS --- */}
         <div className="flex flex-col justify-center">
           <p className="about-text font-sans text-blue-500 font-bold tracking-widest uppercase mb-4">
             About Me
@@ -97,7 +95,7 @@ export default function About() {
             </div>
           </div>
 
-          {/* Interest Tags (Sesuai CV: Musik, Game, Travel) */}
+          {/* Interest Tags */}
           <div className="about-text mt-8 flex flex-wrap gap-3">
              {['Musician', 'Gamer', 'Traveler', 'Leader'].map((tag, i) => (
                <span key={i} className="px-4 py-2 border border-white/10 rounded-full text-xs text-gray-300 hover:bg-white hover:text-black transition-colors duration-300 cursor-default">
